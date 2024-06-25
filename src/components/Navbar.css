@@ -11,6 +11,7 @@
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(108, 8, 8, 0.1);
     padding-right: 2%;
+    z-index: 1000;
 }
 
 .navbar-logo img {

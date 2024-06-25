@@ -1,12 +1,13 @@
 .department-page {
     height: 100em;
     background: linear-gradient(to bottom, black, red);
+    padding-top: 60px;
 }
 
 .department-selection-container {
     text-align: center;
     margin-top: 20px;
-    padding-top: 30%;
+    padding-top: 20px;
 }
 
 .department-selection-container select {

@@ -35,6 +35,7 @@ const DepartmentSelection: React.FC = () => {
             setArtworks(artworksData);
         }
     };
+
     const fetchPageData = async (page: number) => {
         if (selectedDepartment) {
             const artworkIds = await fetchArtworksByDepartment(selectedDepartment);
@@ -46,17 +47,17 @@ const DepartmentSelection: React.FC = () => {
             setArtworks(artworksData);
         }
     };
-    const handlePageChange = (newPage: number) => {
-        setCurrentPage(newPage);
-        fetchPageData(newPage);
-    };
 
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        fetchPageData(page);
+    };
 
     return (
         <div className="department-page">
             <div className="department-selection-container">
                 <select onChange={handleDepartmentChange}>
-                    <option value="">Select a department</option>
+                    <option value="">Select Department</option>
                     {departments.map(dept => (
                         <option key={dept.departmentId} value={dept.departmentId}>
                             {dept.displayName}
@@ -64,14 +65,14 @@ const DepartmentSelection: React.FC = () => {
                     ))}
                 </select>
                 <div className="artworks-container">
-                    {artworks.map(art => (
-                        <div key={art.objectID} className="artwork-item">
-                            <Link to={`/artwork/${art.objectID}`}>
-                                <img src={art.primaryImage} alt={art.title} className="artwork-image" />
+                    {artworks.map(artwork => (
+                        <div key={artwork.id} className="artwork-item">
+                            <Link to={`/artwork/${artwork.objectID}`}>
+                                <img src={artwork.primaryImage} alt={artwork.title} className="artwork-image" />
                                 <div className="artwork-info">
-                                    <h3>{art.title}</h3>
-                                    <p>{art.artistDisplayName}</p>
-                                    <p>{art.objectDate}</p>
+                                    <h3>{artwork.title}</h3>
+                                    <p>{artwork.artistDisplayName}</p>
+                                    <p>{artwork.objectDate}</p>
                                 </div>
                             </Link>
                         </div>
