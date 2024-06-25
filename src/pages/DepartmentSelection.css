@@ -1,0 +1,17 @@
+.department-page {
+    height: 100em;
+    background: linear-gradient(to bottom, black, red);
+}
+
+.department-selection-container {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 30%;
+}
+
+.department-selection-container select {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}

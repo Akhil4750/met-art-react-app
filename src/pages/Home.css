@@ -1,0 +1,46 @@
+/* src/pages/Home.css */
+.home-container {
+    background-image: url('../Images/Art.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 60px;
+    /* Offset for the fixed navbar */
+}
+
+.home-container h1 {
+    margin-bottom: 20px;
+    font-size: 3em;
+}
+
+.explore-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px #1e7e34;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.explore-button:hover {
+    background-color: #218838;
+    box-shadow: 0 4px #1c7430;
+}
+
+.explore-button:active {
+    background-color: #1e7e34;
+    box-shadow: 0 2px #145a22;
+    transform: translateY(2px);
+}

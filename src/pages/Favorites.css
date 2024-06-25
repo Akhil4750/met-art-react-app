@@ -1,0 +1,30 @@
+.Favorite-container {
+    text-align: center;
+    margin-top: 10%;
+    padding-top: 30%;
+    background: linear-gradient(to bottom, black, red);
+    color: #ddd;
+}
+
+.artwork-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.remove-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: white;
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+    background-color: #cc0000;
+}

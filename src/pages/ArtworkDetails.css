@@ -1,0 +1,65 @@
+/* src/pages/ArtworkDetails.css */
+.artwork-details-container {
+    display: flex;
+    margin-top: 10%;
+    padding: 20px;
+    gap: 40px;
+}
+
+.artwork-image-container {
+    flex: 1;
+}
+
+.artwork-image {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.artwork-info-container {
+    flex: 2;
+}
+
+.artwork-info-container h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.artist-info {
+    display: flex;
+    gap: 10px;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.artist-info .artist-name {
+    font-weight: bold;
+}
+
+.artist-info .artist-nationality,
+.artist-info .artist-date {
+    color: gray;
+}
+
+
+.artwork-description {
+    font-size: 1em;
+    margin: 20px 0;
+}
+
+.save-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
