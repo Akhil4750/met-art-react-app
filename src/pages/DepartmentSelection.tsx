@@ -1,3 +1,4 @@
+//src/pages/DepartmentSelection.tsx
 import React, { useState, useEffect } from 'react';
 import { fetchDepartments, fetchArtworksByDepartment, fetchArtworkDetails } from '../services/api';
 import { Department, Artwork } from '../types';
@@ -7,7 +8,7 @@ import '../components/Artworks.css';
 import { Link } from 'react-router-dom';
 
 const DepartmentSelection: React.FC = () => {
-    const [departments, setDepartments] = useState<Department[]>([]);
+    const [departments, setDepartments] = useState<Department[]>([]);// State to store departments
     const [artworks, setArtworks] = useState<Artwork[]>([]);
     const [selectedDepartment, setSelectedDepartment] = useState<number | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,6 +16,7 @@ const DepartmentSelection: React.FC = () => {
     const itemsPerPage = 10;
 
     useEffect(() => {
+        // Fetch departments when component mounts
         const getDepartments = async () => {
             const data = await fetchDepartments();
             setDepartments(data);
@@ -23,6 +25,7 @@ const DepartmentSelection: React.FC = () => {
     }, []);
 
     const handleDepartmentChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+        // Handle department selection change
         const departmentId = parseInt(event.target.value);
         setSelectedDepartment(departmentId);
         setCurrentPage(1);
@@ -37,6 +40,7 @@ const DepartmentSelection: React.FC = () => {
     };
 
     const fetchPageData = async (page: number) => {
+        // Fetch data for the specified page
         if (selectedDepartment) {
             const artworkIds = await fetchArtworksByDepartment(selectedDepartment);
             const start = (page - 1) * itemsPerPage;
@@ -49,6 +53,7 @@ const DepartmentSelection: React.FC = () => {
     };
 
     const handlePageChange = (page: number) => {
+        // Handle page change
         setCurrentPage(page);
         fetchPageData(page);
     };

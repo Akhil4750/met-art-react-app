@@ -1,3 +1,4 @@
+//src/pages/ArtworkDetails.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchArtworkDetails } from '../services/api';
@@ -5,10 +6,12 @@ import { Artwork } from '../types';
 import './ArtworkDetails.css';
 
 const ArtworkDetails: React.FC = () => {
-    const { objectId } = useParams<{ objectId: string }>();
-    const [artwork, setArtwork] = useState<Artwork | null>(null);
+    const { objectId } = useParams<{ objectId: string }>();// Retrieve objectId from URL parameters
+    const [artwork, setArtwork] = useState<Artwork | null>(null); // State to store artwork details
+
 
     useEffect(() => {
+        // Fetch artwork details when component mounts or objectId changes
         const getArtworkDetails = async () => {
             if (objectId) {
                 const data = await fetchArtworkDetails(parseInt(objectId));
@@ -18,9 +21,10 @@ const ArtworkDetails: React.FC = () => {
         getArtworkDetails();
     }, [objectId]);
 
-    if (!artwork) return <div>Loading...</div>;
+    if (!artwork) return <div>Loading...</div>; // Display loading state
 
     const saveToFavorites = () => {
+        // Save artwork to local storage
         const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         favorites.push(artwork);
         localStorage.setItem('favorites', JSON.stringify(favorites));

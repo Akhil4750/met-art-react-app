@@ -1,3 +1,4 @@
+//src/pages/Favorites.tsx
 import React, { useState } from 'react';
 import { Artwork } from '../types';
 import { Link } from 'react-router-dom';
@@ -5,9 +6,11 @@ import '../components/Artworks.css';
 import './Favorites.css';
 
 const Favorites: React.FC = () => {
+    // Load favorites from local storage
     const [favorites, setFavorites] = useState<Artwork[]>(JSON.parse(localStorage.getItem('favorites') || '[]'));
 
     const removeFromFavorites = (objectID: number) => {
+        // Remove artwork from favorites
         const updatedFavorites = favorites.filter(art => art.objectID !== objectID);
         setFavorites(updatedFavorites);
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));

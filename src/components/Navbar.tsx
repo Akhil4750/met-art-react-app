@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import logo from '../Images/MetLogo.png';
 import './Navbar.css';
 
+// Interface for Navbar props
 interface NavbarProps {
-    resetHome: () => void;
+    resetHome: () => void; // Function to reset the home state
 }
 
 const Navbar: React.FC<NavbarProps> = ({ resetHome }) => {

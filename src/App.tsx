@@ -1,4 +1,5 @@
 // src/App.tsx
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -7,9 +8,14 @@ import Favorites from './pages/Favorites';
 import ArtworkDetails from './pages/ArtworkDetails';
 import DepartmentSelection from './pages/DepartmentSelection';
 
+// Main application component
 const App: React.FC = () => {
+
+  // Placeholder function to reset Home state
   const resetHome = () => {
   };
+
+
   return (
     <Router>
       <Navbar resetHome={resetHome} />
