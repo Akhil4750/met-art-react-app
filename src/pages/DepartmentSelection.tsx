@@ -15,6 +15,8 @@ const DepartmentSelection: React.FC = () => {
     const [totalPages, setTotalPages] = useState(1);
     const itemsPerPage = 10;
 
+    const [artworkIdList, setArtworkIdList] = useState<number[]>([]);
+
     useEffect(() => {
         // Fetch departments when component mounts
         const getDepartments = async () => {
@@ -31,6 +33,8 @@ const DepartmentSelection: React.FC = () => {
         setCurrentPage(1);
         if (departmentId) {
             const artworkIds = await fetchArtworksByDepartment(departmentId);
+            setArtworkIdList(artworkIds); // Store the fetched artwork IDs
+
             setTotalPages(Math.ceil(artworkIds.length / itemsPerPage));
             const artworksData = await Promise.all(
                 artworkIds.slice(0, itemsPerPage).map((id: number) => fetchArtworkDetails(id))
@@ -42,11 +46,11 @@ const DepartmentSelection: React.FC = () => {
     const fetchPageData = async (page: number) => {
         // Fetch data for the specified page
         if (selectedDepartment) {
-            const artworkIds = await fetchArtworksByDepartment(selectedDepartment);
+
             const start = (page - 1) * itemsPerPage;
             const end = start + itemsPerPage;
             const artworksData = await Promise.all(
-                artworkIds.slice(start, end).map((id: number) => fetchArtworkDetails(id))
+                artworkIdList.slice(start, end).map((id: number) => fetchArtworkDetails(id))
             );
             setArtworks(artworksData);
         }
